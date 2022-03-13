@@ -8,4 +8,8 @@
           flex-direction: column;
   gap: 100px;
 }
+
+.text-area img {
+  height: 300px;
+}
 /*# sourceMappingURL=textArea.css.map */
