@@ -1,11 +1,15 @@
 import React from 'react';
-import { Button } from '../button/Button.js';
+import { Backspace, Button } from '../button/Button.js';
 import './keyboard.css';
 
 export const Keyboard = (props) => {
   function handleChange(buttonLetter) {
     props.handleKeyboardChange(buttonLetter);
   }
+
+  const handleBackspace = () => {
+    props.handleBackspace();
+  };
 
   return (
     <div className='keyboard'>
@@ -40,6 +44,9 @@ export const Keyboard = (props) => {
         <Button changeText={handleChange} letter='B'></Button>
         <Button changeText={handleChange} letter='N'></Button>
         <Button changeText={handleChange} letter='M'></Button>
+      </div>
+      <div className='fourth-row'>
+        <Backspace handleBackspace={handleBackspace}></Backspace>
       </div>
     </div>
   );

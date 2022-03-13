@@ -20,6 +20,10 @@ export const TextArea = () => {
     setWord(word + button);
   }
 
+  const handleBackspace = () => {
+    setWord(word.slice(0, -1));
+  };
+
   const changeImage = () => {
     setCurrentImage(currentImage + 1);
   };
@@ -28,7 +32,10 @@ export const TextArea = () => {
     <div className='text-area'>
       <img src={photos[images[currentImage]]} alt='nie dziala'></img>
       <WordOutput word={word}></WordOutput>
-      <Keyboard handleKeyboardChange={handleKeyboardChanges}></Keyboard>
+      <Keyboard
+        handleKeyboardChange={handleKeyboardChanges}
+        handleBackspace={handleBackspace}
+      ></Keyboard>
     </div>
   );
 };

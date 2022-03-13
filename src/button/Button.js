@@ -12,3 +12,14 @@ export const Button = (props) => {
     </div>
   );
 };
+
+export const Backspace = (props) => {
+  const handleClick = () => {
+    props.handleBackspace();
+  };
+  return (
+    <div className='button backspace' onClick={handleClick}>
+      Backspace
+    </div>
+  );
+};
