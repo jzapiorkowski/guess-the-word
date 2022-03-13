@@ -1,6 +1,6 @@
 import React from 'react';
-import './wordInput.css';
+import './wordOutput.css';
 
-export const WordInput = (props) => {
+export const WordOutput = (props) => {
   return <div className='word-input'>{props.word}</div>;
 };

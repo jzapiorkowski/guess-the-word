@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { WordInput } from '../wordInput/WordInput';
+import { WordOutput } from '../wordOutput/WordOutput';
 import { Keyboard } from '../keyboard/Keyboard';
 import './textArea.css';
 
@@ -12,7 +12,7 @@ export const TextArea = () => {
 
   return (
     <div className='text-area'>
-      <WordInput word={word}></WordInput>
+      <WordOutput word={word}></WordOutput>
       <Keyboard handleKeyboardChange={handleKeyboardChanges}></Keyboard>
     </div>
   );
