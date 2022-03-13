@@ -1,0 +1,16 @@
+.button {
+  width: 70px;
+  height: 70px;
+  border: solid 2px black;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 5px;
+}
+/*# sourceMappingURL=button.css.map */
