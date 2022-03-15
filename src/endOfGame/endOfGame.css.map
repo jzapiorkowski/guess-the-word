@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,YAAY,CAAC;EACX,OAAO,EAAE,IAAI;EACb,cAAc,EAAE,MAAM;EACtB,WAAW,EAAE,MAAM;EACnB,GAAG,EAAE,IAAI;CAOV;;AAXD,AAKE,YALU,CAKV,GAAG,CAAC;EACF,MAAM,EAAE,eAAe;EACvB,OAAO,EAAE,IAAI;EACb,aAAa,EAAE,GAAG;EAClB,MAAM,EAAE,OAAO;CAChB",
+    "sources": [
+        "endOfGame.scss"
+    ],
+    "names": [],
+    "file": "endOfGame.css"
+}

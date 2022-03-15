@@ -1,0 +1,12 @@
+.end-of-game {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  div {
+    border: 2px black solid;
+    padding: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+}
