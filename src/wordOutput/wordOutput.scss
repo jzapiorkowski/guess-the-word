@@ -1,8 +1,15 @@
 .word-input {
-  height: 70px;
+  height: 90px;
   border: solid black 2px;
   min-width: 600px;
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: #f2ebe9;
+  border-radius: 5px;
+  font-size: 35px;
+  letter-spacing: 2px;
+  @media (max-width: 700px) {
+    height: 70px;
+  }
 }

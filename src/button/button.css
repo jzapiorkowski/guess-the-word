@@ -1,6 +1,6 @@
 .button {
-  width: 70px;
-  height: 70px;
+  width: 60px;
+  height: 60px;
   border: solid 2px black;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -12,6 +12,24 @@
       -ms-flex-align: center;
           align-items: center;
   border-radius: 5px;
+  background-color: #f2ebe9;
+  cursor: default;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+@media (max-width: 700px) {
+  .button {
+    width: 45px;
+    height: 45px;
+  }
+}
+
+.button:active {
+  -webkit-filter: brightness(85%);
+          filter: brightness(85%);
 }
 
 .backspace {

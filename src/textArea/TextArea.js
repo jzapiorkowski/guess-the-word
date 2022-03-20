@@ -20,7 +20,6 @@ export const TextArea = () => {
         changeImage();
       }
       setWord('');
-      console.log(currentImage);
     }
   }, [word]);
 
