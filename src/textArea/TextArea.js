@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { WordOutput } from '../wordOutput/WordOutput';
+import React, { useEffect, useState, useRef } from 'react';
+// import { WordOutput } from '../wordOutput/WordOutput';
 import { Keyboard } from '../keyboard/Keyboard';
 import './textArea.css';
 import photos from '../images/index';
@@ -7,9 +7,44 @@ import { EndOfGame } from '../endOfGame/EndOfGame';
 
 export const TextArea = () => {
   const images = Object.keys(photos);
+  const isMounted = useRef(false);
   const [word, setWord] = useState('');
   const [currentImage, setCurrentImage] = useState(0);
   const [win, setWin] = useState(false);
+  const [letterTiles, setLetterTiles] = useState(() => {
+    const letters = [];
+    for (let i = 0; i < images[currentImage].length; i++) {
+      letters.push(<div key={i} className='letter-tile'></div>);
+    }
+    return letters;
+  });
+
+  useEffect(() => {
+    if (isMounted.current) {
+      setLetterTiles(() => {
+        const letters = [];
+        for (let i = 0; i < images[currentImage].length; i++) {
+          letters.push(
+            word[i] !== undefined ? (
+              <div key={i} className='letter-tile'>
+                {word[i]}
+              </div>
+            ) : (
+              <div key={i} className='letter-tile'></div>
+            )
+          );
+        }
+        return letters;
+      });
+    }
+  }, [word]);
+
+  useEffect(() => {
+    if (isMounted.current) {
+    } else {
+      isMounted.current = true;
+    }
+  });
 
   useEffect(() => {
     if (images[currentImage].toUpperCase() === word.toUpperCase()) {
@@ -24,7 +59,10 @@ export const TextArea = () => {
   }, [word]);
 
   function handleKeyboardChanges(button) {
-    setWord(word + button);
+    if (word.length >= images[currentImage].length) {
+    } else {
+      setWord(word + button);
+    }
   }
 
   const handleBackspace = () => {
@@ -38,7 +76,8 @@ export const TextArea = () => {
   return !win ? (
     <div className='text-area'>
       <img src={photos[images[currentImage]]} alt='image to guess'></img>
-      <WordOutput word={word}></WordOutput>
+      {/* <WordOutput word={word}></WordOutput> */}
+      <div className='letters-container'>{letterTiles}</div>
       <Keyboard
         handleKeyboardChange={handleKeyboardChanges}
         handleBackspace={handleBackspace}
