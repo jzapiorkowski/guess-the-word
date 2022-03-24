@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat&display=swap');
+
+.header {
+  height: 70px;
+  width: 100vw;
+  background-color: #2777a9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 45px;
+  font-weight: bold;
+  .logo {
+    font-family: 'Caveat', cursive;
+  }
+}
