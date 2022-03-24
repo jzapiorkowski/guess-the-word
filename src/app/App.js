@@ -1,11 +1,12 @@
 import React, { useEffect, useState, useRef } from 'react';
 // import { WordOutput } from '../wordOutput/WordOutput';
 import { Keyboard } from '../keyboard/Keyboard';
-import './textArea.css';
+import './app.css';
 import photos from '../images/index';
 import { EndOfGame } from '../endOfGame/EndOfGame';
+import { Header } from '../header/header';
 
-export const TextArea = () => {
+export const App = () => {
   const images = Object.keys(photos);
   const isMounted = useRef(false);
   const [word, setWord] = useState('');
@@ -74,7 +75,8 @@ export const TextArea = () => {
   };
 
   return !win ? (
-    <div className='text-area'>
+    <div className='app'>
+      <Header></Header>
       <img src={photos[images[currentImage]]} alt='image to guess'></img>
       {/* <WordOutput word={word}></WordOutput> */}
       <div className='letters-container'>{letterTiles}</div>
