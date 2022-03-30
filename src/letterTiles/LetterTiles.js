@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import './letterTiles.css';
 
 export const LetterTiles = (props) => {
   const [letterTiles, setLetterTiles] = useState(() => {
@@ -27,5 +28,5 @@ export const LetterTiles = (props) => {
     });
   }, [props.word]);
 
-  return <div>{letterTiles}</div>;
+  return <div className='letter-tiles'>{letterTiles}</div>;
 };
