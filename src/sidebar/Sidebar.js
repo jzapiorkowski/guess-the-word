@@ -23,6 +23,12 @@ export const Sidebar = () => {
             <li difficulty='easy' onClick={() => changeGameDifficulty('easy')}>
               Easy
             </li>
+            <li
+              difficulty='medium'
+              onClick={() => changeGameDifficulty('medium')}
+            >
+              Medium
+            </li>
             <li difficulty='hard' onClick={() => changeGameDifficulty('hard')}>
               Hard
             </li>
