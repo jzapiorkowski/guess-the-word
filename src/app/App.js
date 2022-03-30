@@ -6,6 +6,9 @@ import photos from '../images/index';
 import { EndOfGame } from '../endOfGame/EndOfGame';
 import { Header } from '../header/header';
 
+export const GameDifficultyContext = React.createContext();
+export const ChangeGameDifficultyContext = React.createContext();
+
 export const App = () => {
   const images = Object.keys(photos);
   const isMounted = useRef(false);
@@ -19,6 +22,7 @@ export const App = () => {
     }
     return letters;
   });
+  const [gameDifficulty, setGameDifficulty] = useState('easy');
 
   useEffect(() => {
     if (isMounted.current) {
@@ -66,6 +70,10 @@ export const App = () => {
     }
   }
 
+  const changeGameDifficulty = (difficulty) => {
+    setGameDifficulty(difficulty);
+  };
+
   const handleBackspace = () => {
     setWord(word.slice(0, -1));
   };
@@ -76,7 +84,11 @@ export const App = () => {
 
   return !win ? (
     <div className='app'>
-      <Header></Header>
+      <GameDifficultyContext.Provider value={gameDifficulty}>
+        <ChangeGameDifficultyContext.Provider value={changeGameDifficulty}>
+          <Header></Header>
+        </ChangeGameDifficultyContext.Provider>
+      </GameDifficultyContext.Provider>
       <img src={photos[images[currentImage]]} alt='image to guess'></img>
       {/* <WordOutput word={word}></WordOutput> */}
       <div className='letters-container'>{letterTiles}</div>
