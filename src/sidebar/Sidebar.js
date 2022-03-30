@@ -1,11 +1,13 @@
 import React, { useState, useContext } from 'react';
 import './sidebar.css';
 import { VscTriangleDown, VscTriangleUp } from 'react-icons/vsc';
-import { ChangeGameDifficultyContext } from '../app/App';
+import { ChangeGameDifficultyContext, GameDifficultyContext } from '../app/App';
+import { FiCheck } from 'react-icons/fi';
 
 export const Sidebar = () => {
   const [isHidden, setIsHidden] = useState(true);
   const changeGameDifficulty = useContext(ChangeGameDifficultyContext);
+  const gameDifficulty = useContext(GameDifficultyContext);
 
   const toggleDifficultyMenu = () => {
     setIsHidden(!isHidden);
@@ -21,16 +23,19 @@ export const Sidebar = () => {
         {!isHidden ? (
           <ul>
             <li difficulty='easy' onClick={() => changeGameDifficulty('easy')}>
-              Easy
+              <p>Easy</p>
+              {gameDifficulty === 'easy' ? <FiCheck></FiCheck> : null}
             </li>
             <li
               difficulty='medium'
               onClick={() => changeGameDifficulty('medium')}
             >
-              Medium
+              <p>Medium</p>
+              {gameDifficulty === 'medium' ? <FiCheck></FiCheck> : null}
             </li>
             <li difficulty='hard' onClick={() => changeGameDifficulty('hard')}>
-              Hard
+              <p>Hard</p>
+              {gameDifficulty === 'hard' ? <FiCheck></FiCheck> : null}
             </li>
           </ul>
         ) : null}
