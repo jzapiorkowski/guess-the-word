@@ -5,51 +5,17 @@ import './app.css';
 import photos from '../images/index';
 import { EndOfGame } from '../endOfGame/EndOfGame';
 import { Header } from '../header/header';
+import { LetterTiles } from '../letterTiles/LetterTiles';
 
 export const GameDifficultyContext = React.createContext();
 export const ChangeGameDifficultyContext = React.createContext();
 
 export const App = () => {
   const images = Object.keys(photos);
-  const isMounted = useRef(false);
   const [word, setWord] = useState('');
   const [currentImage, setCurrentImage] = useState(0);
   const [win, setWin] = useState(false);
-  const [letterTiles, setLetterTiles] = useState(() => {
-    const letters = [];
-    for (let i = 0; i < images[currentImage].length; i++) {
-      letters.push(<div key={i} className='letter-tile'></div>);
-    }
-    return letters;
-  });
   const [gameDifficulty, setGameDifficulty] = useState('easy');
-
-  useEffect(() => {
-    if (isMounted.current) {
-      setLetterTiles(() => {
-        const letters = [];
-        for (let i = 0; i < images[currentImage].length; i++) {
-          letters.push(
-            word[i] !== undefined ? (
-              <div key={i} className='letter-tile'>
-                {word[i]}
-              </div>
-            ) : (
-              <div key={i} className='letter-tile'></div>
-            )
-          );
-        }
-        return letters;
-      });
-    }
-  }, [word]);
-
-  useEffect(() => {
-    if (isMounted.current) {
-    } else {
-      isMounted.current = true;
-    }
-  });
 
   useEffect(() => {
     if (images[currentImage].toUpperCase() === word.toUpperCase()) {
@@ -85,7 +51,15 @@ export const App = () => {
   const switchWordOutput = (difficulty) => {
     switch (difficulty) {
       case 'easy':
-        return <div className='letters-container'>{letterTiles}</div>;
+        return (
+          <div className='letters-container'>
+            <LetterTiles
+              images={images}
+              currentImage={currentImage}
+              word={word}
+            ></LetterTiles>
+          </div>
+        );
       case 'hard':
         return <WordOutput word={word}></WordOutput>;
       default:
