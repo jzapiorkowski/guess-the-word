@@ -52,13 +52,11 @@ export const App = () => {
     switch (difficulty) {
       case 'easy':
         return (
-          <div className='letters-container'>
-            <LetterTiles
-              images={images}
-              currentImage={currentImage}
-              word={word}
-            ></LetterTiles>
-          </div>
+          <LetterTiles
+            images={images}
+            currentImage={currentImage}
+            word={word}
+          ></LetterTiles>
         );
       case 'hard':
         return <WordOutput word={word}></WordOutput>;
