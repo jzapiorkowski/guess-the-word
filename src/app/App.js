@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
-// import { WordOutput } from '../wordOutput/WordOutput';
+import { WordOutput } from '../wordOutput/WordOutput';
 import { Keyboard } from '../keyboard/Keyboard';
 import './app.css';
 import photos from '../images/index';
@@ -82,6 +82,17 @@ export const App = () => {
     setCurrentImage(currentImage + 1);
   };
 
+  const switchWordOutput = (difficulty) => {
+    switch (difficulty) {
+      case 'easy':
+        return <div className='letters-container'>{letterTiles}</div>;
+      case 'hard':
+        return <WordOutput word={word}></WordOutput>;
+      default:
+        break;
+    }
+  };
+
   return !win ? (
     <div className='app'>
       <GameDifficultyContext.Provider value={gameDifficulty}>
@@ -90,8 +101,7 @@ export const App = () => {
         </ChangeGameDifficultyContext.Provider>
       </GameDifficultyContext.Provider>
       <img src={photos[images[currentImage]]} alt='image to guess'></img>
-      {/* <WordOutput word={word}></WordOutput> */}
-      <div className='letters-container'>{letterTiles}</div>
+      {switchWordOutput(gameDifficulty)}
       <Keyboard
         handleKeyboardChange={handleKeyboardChanges}
         handleBackspace={handleBackspace}
