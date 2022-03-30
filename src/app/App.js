@@ -56,8 +56,20 @@ export const App = () => {
             images={images}
             currentImage={currentImage}
             word={word}
+            difficulty={gameDifficulty}
           ></LetterTiles>
         );
+
+      case 'medium':
+        return (
+          <LetterTiles
+            images={images}
+            currentImage={currentImage}
+            word={word}
+            difficulty={gameDifficulty}
+          ></LetterTiles>
+        );
+
       case 'hard':
         return <WordOutput word={word}></WordOutput>;
       default:
