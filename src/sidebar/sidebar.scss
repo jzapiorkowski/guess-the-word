@@ -36,7 +36,7 @@
         list-style-type: none;
         height: 50px;
         display: flex;
-        justify-content: flex-start;
+        justify-content: space-between;
         align-items: center;
         padding-left: 30px;
         user-select: none;
@@ -44,6 +44,9 @@
         -webkit-user-select: none;
         -ms-user-select: none;
         cursor: pointer;
+        svg {
+          margin-right: 10px;
+        }
       }
     }
   }
