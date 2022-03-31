@@ -12,9 +12,10 @@
   -moz-user-select: none;
   -webkit-user-select: none;
   -ms-user-select: none;
-  @media (max-width: 700px) {
-    width: 45px;
-    height: 45px;
+  @media (max-width: 1000px) {
+    width: calc((100vw - 40px) / 10);
+    height: calc((100vw - 40px) / 6);
+    background-color: red;
   }
   &:active {
     filter: brightness(85%);
