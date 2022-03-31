@@ -13,7 +13,14 @@
 }
 
 .app img {
-  height: 300px;
-  margin: auto;
+  height: auto;
+  width: 600px;
+}
+
+@media (max-width: 800px) {
+  .app img {
+    width: 100%;
+    height: auto;
+  }
 }
 /*# sourceMappingURL=app.css.map */
