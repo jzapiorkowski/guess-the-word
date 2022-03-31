@@ -1,7 +1,6 @@
 .word-input {
   height: 100px;
   border: solid black 2px;
-  min-width: 600px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -15,11 +14,12 @@
   border-radius: 5px;
   font-size: 35px;
   letter-spacing: 2px;
+  width: 600px;
 }
 
-@media (max-width: 700px) {
+@media (max-width: 1200px) {
   .word-input {
-    height: 70px;
+    width: calc(100vw - 40px);
   }
 }
 /*# sourceMappingURL=wordOutput.css.map */
