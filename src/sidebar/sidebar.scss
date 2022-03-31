@@ -14,7 +14,8 @@
       height: 50px;
       display: flex;
       flex-direction: row;
-      justify-content: flex-start;
+      justify-content: space-between;
+      gap: 20px;
       align-items: center;
       background-color: #2777a9;
       border-radius: 10px;
@@ -23,9 +24,6 @@
       -moz-user-select: none;
       -webkit-user-select: none;
       -ms-user-select: none;
-      p {
-        margin-right: 20px;
-      }
       svg {
         margin-right: 10px;
       }
