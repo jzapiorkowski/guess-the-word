@@ -15,7 +15,6 @@
   @media (max-width: 1000px) {
     width: calc((100vw - 40px) / 10);
     height: calc((100vw - 40px) / 6);
-    background-color: red;
   }
   &:active {
     filter: brightness(85%);
