@@ -60,7 +60,9 @@ export const LetterTiles = (props) => {
                 key={i}
                 className='letter-tile'
                 style={
-                  size() ? Object.assign(size(), tileColor(i)) : tileColor(i)
+                  props.difficulty === 'easy'
+                    ? Object.assign(size(), tileColor(i))
+                    : size()
                 }
               >
                 {props.word[i]}
