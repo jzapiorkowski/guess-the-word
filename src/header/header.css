@@ -15,26 +15,12 @@
   color: white;
 }
 
-.header .sidebar-icon {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  gap: 5px;
+.header > svg {
   cursor: pointer;
   position: absolute;
   left: 0;
   margin-left: 10px;
-}
-
-.header .sidebar-icon .stripe {
-  width: 30px;
-  height: 3px;
-  background-color: white;
-  border-radius: 2px;
+  font-size: 30px;
 }
 
 .header .logo {
