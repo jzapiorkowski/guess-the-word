@@ -10,6 +10,9 @@
       -ms-flex-align: center;
           align-items: center;
   gap: 30px;
+  justify-self: center;
+  margin: auto;
+  text-align: center;
 }
 
 .end-of-game div {
@@ -17,5 +20,6 @@
   padding: 15px;
   border-radius: 5px;
   cursor: pointer;
+  background-color: #f2ebe9;
 }
 /*# sourceMappingURL=endOfGame.css.map */

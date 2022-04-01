@@ -3,10 +3,14 @@
   flex-direction: column;
   align-items: center;
   gap: 30px;
+  justify-self: center;
+  margin: auto;
+  text-align: center;
   div {
     border: 2px black solid;
     padding: 15px;
     border-radius: 5px;
     cursor: pointer;
+    background-color: #f2ebe9;
   }
 }

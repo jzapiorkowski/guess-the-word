@@ -79,7 +79,7 @@ export const App = () => {
       ></Keyboard>
     </div>
   ) : (
-    <div>
+    <div className='app'>
       <Header endGame={win}></Header>
       <EndOfGame></EndOfGame>
     </div>
