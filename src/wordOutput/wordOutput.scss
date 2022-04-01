@@ -11,5 +11,7 @@
   width: 600px;
   @media (max-width: 1200px) {
     width: calc(100vw - 40px);
+    height: calc((100vw - 10px) / 9);
+    font-size: medium;
   }
 }

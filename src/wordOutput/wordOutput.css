@@ -20,6 +20,8 @@
 @media (max-width: 1200px) {
   .word-input {
     width: calc(100vw - 40px);
+    height: calc((100vw - 10px) / 9);
+    font-size: medium;
   }
 }
 /*# sourceMappingURL=wordOutput.css.map */
