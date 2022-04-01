@@ -13,6 +13,15 @@ export const Sidebar = () => {
     setIsHidden(!isHidden);
   };
 
+  const difficultyList = ['easy', 'medium', 'hard'].map((difficulty, key) => {
+    return (
+      <li key={key} onClick={() => changeGameDifficulty(difficulty)}>
+        <p>{difficulty[0].toUpperCase() + difficulty.slice(1)}</p>
+        {gameDifficulty === difficulty ? <FiCheck></FiCheck> : null}
+      </li>
+    );
+  });
+
   return (
     <nav className='sidebar'>
       <div className='difficulty-change'>
@@ -20,18 +29,7 @@ export const Sidebar = () => {
           <p>Choose difficulty</p>
           {isHidden ? <VscTriangleDown /> : <VscTriangleUp />}
         </div>
-        {!isHidden ? (
-          <ul>
-            {['easy', 'medium', 'hard'].map((difficulty, key) => {
-              return (
-                <li key={key} onClick={() => changeGameDifficulty(difficulty)}>
-                  <p>{difficulty[0].toUpperCase() + difficulty.slice(1)}</p>
-                  {gameDifficulty === difficulty ? <FiCheck></FiCheck> : null}
-                </li>
-              );
-            })}
-          </ul>
-        ) : null}
+        {!isHidden ? <ul>{difficultyList}</ul> : null}
       </div>
     </nav>
   );
