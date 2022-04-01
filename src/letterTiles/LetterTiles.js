@@ -21,6 +21,11 @@ export const LetterTiles = (props) => {
         height: `calc((100vw - 10px) / 9 )`,
         width: `calc((100vw - 10px) / 9 )`,
       };
+    } else {
+      return {
+        height: '100px',
+        width: '100px',
+      };
     }
   }
 
