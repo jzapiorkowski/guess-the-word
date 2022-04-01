@@ -15,6 +15,7 @@
   font-size: 35px;
   letter-spacing: 2px;
   width: 600px;
+  overflow: scroll;
 }
 
 @media (max-width: 1200px) {

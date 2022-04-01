@@ -9,6 +9,7 @@
   font-size: 35px;
   letter-spacing: 2px;
   width: 600px;
+  overflow: scroll;
   @media (max-width: 1200px) {
     width: calc(100vw - 40px);
     height: calc((100vw - 10px) / 9);
