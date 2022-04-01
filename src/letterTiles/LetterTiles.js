@@ -32,10 +32,12 @@ export const LetterTiles = (props) => {
   }
 
   const tileColor = (index) => {
-    return props.images[props.currentImage][index].toUpperCase() ===
-      props.word[index].toUpperCase()
-      ? { backgroundColor: '#59C9A5' }
-      : { backgroundColor: '#C95D63' };
+    if (props.word[index] !== undefined) {
+      return props.images[props.currentImage][index].toUpperCase() ===
+        props.word[index].toUpperCase()
+        ? { backgroundColor: '#59C9A5' }
+        : { backgroundColor: '#C95D63' };
+    }
   };
 
   const letters = props.images[props.currentImage]
