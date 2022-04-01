@@ -56,7 +56,6 @@ export const App = () => {
             images={images}
             currentImage={currentImage}
             word={word}
-            difficulty={gameDifficulty}
           ></LetterTiles>
         );
 
@@ -66,7 +65,6 @@ export const App = () => {
             images={images}
             currentImage={currentImage}
             word={word}
-            difficulty={gameDifficulty}
           ></LetterTiles>
         );
 
