@@ -38,6 +38,24 @@ export const LetterTiles = (props) => {
       : { backgroundColor: '#C95D63' };
   };
 
+  const letters = props.images[props.currentImage]
+    .split('')
+    .map((letter, index) => {
+      return (
+        <div
+          key={index}
+          className='letter-tile'
+          style={
+            gameDifficulty === 'easy'
+              ? Object.assign(size(), tileColor(index))
+              : size()
+          }
+        >
+          {props.word[index] ? props.word[index] : null}
+        </div>
+      );
+    });
+
   useEffect(() => {
     setLetterTiles(() => {
       const letters = [];
