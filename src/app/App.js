@@ -52,20 +52,24 @@ export const App = () => {
     switch (difficulty) {
       case 'easy':
         return (
-          <LetterTiles
-            images={images}
-            currentImage={currentImage}
-            word={word}
-          ></LetterTiles>
+          <GameDifficultyContext.Provider value={gameDifficulty}>
+            <LetterTiles
+              images={images}
+              currentImage={currentImage}
+              word={word}
+            ></LetterTiles>
+          </GameDifficultyContext.Provider>
         );
 
       case 'medium':
         return (
-          <LetterTiles
-            images={images}
-            currentImage={currentImage}
-            word={word}
-          ></LetterTiles>
+          <GameDifficultyContext.Provider value={gameDifficulty}>
+            <LetterTiles
+              images={images}
+              currentImage={currentImage}
+              word={word}
+            ></LetterTiles>
+          </GameDifficultyContext.Provider>
         );
 
       case 'hard':
