@@ -64,8 +64,16 @@ export const App = () => {
     }
   };
 
+  const handleKeyboardLetterPress = (event) => {
+    if (event.key === 'Backspace') {
+      handleBackspace();
+    } else if (event.key.toUpperCase().match(/^[A-Z]{1}$/)) {
+      handleKeyboardChanges(event.key.toUpperCase());
+    }
+  };
+
   return !win ? (
-    <div className='app'>
+    <div className='app' onKeyDown={handleKeyboardLetterPress} tabIndex='0'>
       <GameDifficultyContext.Provider value={gameDifficulty}>
         <ChangeGameDifficultyContext.Provider value={changeGameDifficulty}>
           <Header></Header>
