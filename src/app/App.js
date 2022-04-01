@@ -23,7 +23,9 @@ export const App = () => {
         setWin(!win);
         setCurrentImage(0);
       } else {
-        changeImage();
+        setTimeout(() => {
+          changeImage();
+        }, 1000);
       }
       setTimeout(() => {
         setWord('');
