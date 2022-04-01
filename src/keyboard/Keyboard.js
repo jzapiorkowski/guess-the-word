@@ -36,9 +36,7 @@ export const Keyboard = (props) => {
   return (
     <div className='keyboard'>
       {buttons}
-      <div className='fourth-row'>
-        <Backspace handleBackspace={handleBackspace}></Backspace>
-      </div>
+      <Backspace handleBackspace={handleBackspace}></Backspace>
     </div>
   );
 };
