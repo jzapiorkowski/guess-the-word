@@ -62,46 +62,5 @@ export const LetterTiles = (props) => {
     setLetterTiles(letters);
   }, [props.word]);
 
-  useEffect(() => {
-    setLetterTiles(() => {
-      const letters = [];
-      if (gameDifficulty === 'medium') {
-        for (let i = 0; i < props.images[props.currentImage].length; i++) {
-          letters.push(
-            props.word[i] !== undefined ? (
-              <div key={i} className='letter-tile' style={size()}>
-                {props.word[i]}
-              </div>
-            ) : (
-              <div key={i} className='letter-tile' style={size()}></div>
-            )
-          );
-        }
-        return letters;
-      } else {
-        for (let i = 0; i < props.images[props.currentImage].length; i++) {
-          letters.push(
-            props.word[i] !== undefined ? (
-              <div
-                key={i}
-                className='letter-tile'
-                style={
-                  gameDifficulty === 'easy'
-                    ? Object.assign(size(), tileColor(i))
-                    : size()
-                }
-              >
-                {props.word[i]}
-              </div>
-            ) : (
-              <div key={i} className='letter-tile' style={size()}></div>
-            )
-          );
-        }
-        return letters;
-      }
-    });
-  }, [props.word]);
-
   return <div className='letter-tiles'>{letterTiles}</div>;
 };
