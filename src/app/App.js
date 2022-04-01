@@ -25,7 +25,9 @@ export const App = () => {
       } else {
         changeImage();
       }
-      setWord('');
+      setTimeout(() => {
+        setWord('');
+      }, 1000);
     }
   }, [word]);
 
