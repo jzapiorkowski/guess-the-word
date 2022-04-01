@@ -22,21 +22,6 @@ export const Sidebar = () => {
         </div>
         {!isHidden ? (
           <ul>
-            <li difficulty='easy' onClick={() => changeGameDifficulty('easy')}>
-              <p>Easy</p>
-              {gameDifficulty === 'easy' ? <FiCheck></FiCheck> : null}
-            </li>
-            <li
-              difficulty='medium'
-              onClick={() => changeGameDifficulty('medium')}
-            >
-              <p>Medium</p>
-              {gameDifficulty === 'medium' ? <FiCheck></FiCheck> : null}
-            </li>
-            <li difficulty='hard' onClick={() => changeGameDifficulty('hard')}>
-              <p>Hard</p>
-              {gameDifficulty === 'hard' ? <FiCheck></FiCheck> : null}
-            </li>
             {['easy', 'medium', 'hard'].map((difficulty, key) => {
               return (
                 <li key={key} onClick={() => changeGameDifficulty(difficulty)}>
