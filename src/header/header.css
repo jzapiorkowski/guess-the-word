@@ -42,4 +42,10 @@
 .header .logo {
   font-family: 'Caveat', cursive;
 }
+
+@media (max-width: 800px) {
+  .header .logo {
+    font-size: 35px;
+  }
+}
 /*# sourceMappingURL=header.css.map */
