@@ -59,6 +59,10 @@ export const LetterTiles = (props) => {
     });
 
   useEffect(() => {
+    setLetterTiles(letters);
+  }, [props.word]);
+
+  useEffect(() => {
     setLetterTiles(() => {
       const letters = [];
       if (gameDifficulty === 'medium') {
