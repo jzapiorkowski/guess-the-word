@@ -30,8 +30,9 @@ export const App = () => {
   }, [word]);
 
   function handleKeyboardChanges(button) {
-    if (word.length >= images[currentImage].length) {
-    } else {
+    if (gameDifficulty === 'hard') {
+      setWord(word + button);
+    } else if (word.length < images[currentImage].length) {
       setWord(word + button);
     }
   }
