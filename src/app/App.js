@@ -49,33 +49,18 @@ export const App = () => {
   };
 
   const switchWordOutput = (difficulty) => {
-    switch (difficulty) {
-      case 'easy':
-        return (
-          <GameDifficultyContext.Provider value={gameDifficulty}>
-            <LetterTiles
-              images={images}
-              currentImage={currentImage}
-              word={word}
-            ></LetterTiles>
-          </GameDifficultyContext.Provider>
-        );
-
-      case 'medium':
-        return (
-          <GameDifficultyContext.Provider value={gameDifficulty}>
-            <LetterTiles
-              images={images}
-              currentImage={currentImage}
-              word={word}
-            ></LetterTiles>
-          </GameDifficultyContext.Provider>
-        );
-
-      case 'hard':
-        return <WordOutput word={word}></WordOutput>;
-      default:
-        break;
+    if (difficulty === 'easy' || difficulty === 'medium') {
+      return (
+        <GameDifficultyContext.Provider value={gameDifficulty}>
+          <LetterTiles
+            images={images}
+            currentImage={currentImage}
+            word={word}
+          ></LetterTiles>
+        </GameDifficultyContext.Provider>
+      );
+    } else {
+      return <WordOutput word={word}></WordOutput>;
     }
   };
 
