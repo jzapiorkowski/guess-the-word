@@ -24,7 +24,7 @@ export const Keyboard = (props) => {
           return (
             <Button
               key={buttonIndex}
-              changetext={handleChange}
+              changeText={handleChange}
               letter={letter}
             ></Button>
           );
