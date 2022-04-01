@@ -37,6 +37,14 @@ export const Sidebar = () => {
               <p>Hard</p>
               {gameDifficulty === 'hard' ? <FiCheck></FiCheck> : null}
             </li>
+            {['easy', 'medium', 'hard'].map((difficulty, key) => {
+              return (
+                <li key={key} onClick={() => changeGameDifficulty(difficulty)}>
+                  <p>{difficulty[0].toUpperCase() + difficulty.slice(1)}</p>
+                  {gameDifficulty === difficulty ? <FiCheck></FiCheck> : null}
+                </li>
+              );
+            })}
           </ul>
         ) : null}
       </div>
