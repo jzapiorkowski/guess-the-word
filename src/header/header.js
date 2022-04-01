@@ -14,11 +14,6 @@ export const Header = () => {
     <div className='header'>
       {sidebar ? <Sidebar></Sidebar> : null}
       <GoThreeBars onClick={toggleSidebar}></GoThreeBars>
-      <div className='sidebar-icon' onClick={toggleSidebar}>
-        <div className='stripe'></div>
-        <div className='stripe'></div>
-        <div className='stripe'></div>
-      </div>
       <div className='logo'>Guess the word!</div>
     </div>
   );
