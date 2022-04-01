@@ -1,7 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import './letterTiles.css';
+import { GameDifficultyContext } from '../app/App';
 
 export const LetterTiles = (props) => {
+  const gameDifficulty = useContext(GameDifficultyContext);
   const [letterTiles, setLetterTiles] = useState(() => {
     const letters = [];
     for (let i = 0; i < props.images[props.currentImage].length; i++) {
@@ -39,7 +41,7 @@ export const LetterTiles = (props) => {
   useEffect(() => {
     setLetterTiles(() => {
       const letters = [];
-      if (props.difficulty === 'medium') {
+      if (gameDifficulty === 'medium') {
         for (let i = 0; i < props.images[props.currentImage].length; i++) {
           letters.push(
             props.word[i] !== undefined ? (
@@ -60,7 +62,7 @@ export const LetterTiles = (props) => {
                 key={i}
                 className='letter-tile'
                 style={
-                  props.difficulty === 'easy'
+                  gameDifficulty === 'easy'
                     ? Object.assign(size(), tileColor(i))
                     : size()
                 }
