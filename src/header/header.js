@@ -3,7 +3,7 @@ import { Sidebar } from '../sidebar/Sidebar';
 import './header.css';
 import { GoThreeBars } from 'react-icons/go';
 
-export const Header = () => {
+export const Header = (props) => {
   const [sidebar, setSidebar] = useState(false);
 
   const toggleSidebar = () => {
@@ -13,7 +13,9 @@ export const Header = () => {
   return (
     <div className='header'>
       {sidebar ? <Sidebar></Sidebar> : null}
-      <GoThreeBars onClick={toggleSidebar}></GoThreeBars>
+      {!props.endGame ? (
+        <GoThreeBars onClick={toggleSidebar}></GoThreeBars>
+      ) : null}
       <div className='logo'>Guess the word!</div>
     </div>
   );

@@ -79,6 +79,9 @@ export const App = () => {
       ></Keyboard>
     </div>
   ) : (
-    <EndOfGame></EndOfGame>
+    <div>
+      <Header endGame={win}></Header>
+      <EndOfGame></EndOfGame>
+    </div>
   );
 };
