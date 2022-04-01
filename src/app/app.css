@@ -18,6 +18,7 @@
 .app img {
   height: auto;
   width: 600px;
+  margin-top: 75px;
 }
 
 @media (max-width: 800px) {
