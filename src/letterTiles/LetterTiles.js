@@ -6,7 +6,7 @@ export const LetterTiles = (props) => {
   const gameDifficulty = useContext(GameDifficultyContext);
   const [letterTiles, setLetterTiles] = useState(() => {
     const letters = [];
-    for (let i = 0; i < props.images[props.currentImage].length; i++) {
+    for (let i = 0; i < props.images[props.currentImageIndex].length; i++) {
       letters.push(<div key={i} className='letter-tile' style={size()}></div>);
     }
     return letters;
@@ -33,14 +33,14 @@ export const LetterTiles = (props) => {
 
   const tileColor = (index) => {
     if (props.word[index] !== undefined) {
-      return props.images[props.currentImage][index].toUpperCase() ===
+      return props.images[props.currentImageIndex][index].toUpperCase() ===
         props.word[index].toUpperCase()
         ? { backgroundColor: '#59C9A5' }
         : { backgroundColor: '#C95D63' };
     }
   };
 
-  const letters = props.images[props.currentImage]
+  const letters = props.images[props.currentImageIndex]
     .split('')
     .map((letter, index) => {
       return (

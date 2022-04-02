@@ -13,15 +13,15 @@ export const ChangeGameDifficultyContext = React.createContext();
 export const App = () => {
   const images = Object.keys(photos);
   const [word, setWord] = useState('');
-  const [currentImage, setCurrentImage] = useState(0);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [win, setWin] = useState(false);
   const [gameDifficulty, setGameDifficulty] = useState('easy');
 
   useEffect(() => {
-    if (images[currentImage].toUpperCase() === word.toUpperCase()) {
-      if (currentImage === images.length - 1) {
+    if (images[currentImageIndex].toUpperCase() === word.toUpperCase()) {
+      if (currentImageIndex === images.length - 1) {
         setWin(!win);
-        setCurrentImage(0);
+        setCurrentImageIndex(0);
       } else {
         setTimeout(() => {
           changeImage();
@@ -36,7 +36,7 @@ export const App = () => {
   function handleKeyboardChanges(button) {
     if (gameDifficulty === 'hard') {
       setWord(word + button);
-    } else if (word.length < images[currentImage].length) {
+    } else if (word.length < images[currentImageIndex].length) {
       setWord(word + button);
     }
   }
@@ -50,7 +50,7 @@ export const App = () => {
   };
 
   const changeImage = () => {
-    setCurrentImage(currentImage + 1);
+    setCurrentImageIndex(currentImageIndex + 1);
   };
 
   const switchWordOutput = (difficulty) => {
@@ -59,7 +59,7 @@ export const App = () => {
         <GameDifficultyContext.Provider value={gameDifficulty}>
           <LetterTiles
             images={images}
-            currentImage={currentImage}
+            currentImageIndex={currentImageIndex}
             word={word}
           ></LetterTiles>
         </GameDifficultyContext.Provider>
@@ -84,7 +84,7 @@ export const App = () => {
           <Header></Header>
         </ChangeGameDifficultyContext.Provider>
       </GameDifficultyContext.Provider>
-      <img src={photos[images[currentImage]]} alt='image to guess'></img>
+      <img src={photos[images[currentImageIndex]]} alt='image to guess'></img>
       {switchWordOutput(gameDifficulty)}
       <Keyboard
         handleKeyboardChange={handleKeyboardChanges}
