@@ -7,7 +7,7 @@ export const EndOfGame = () => {
   };
   return (
     <div className='end-of-game'>
-      <h1>Congratulations, you won!</h1>
+      <p>Congratulations, you won!</p>
       <div onClick={refreshPage}>click here to play again</div>
     </div>
   );

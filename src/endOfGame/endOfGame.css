@@ -22,4 +22,15 @@
   cursor: pointer;
   background-color: #f2ebe9;
 }
+
+.end-of-game p {
+  font-weight: bold;
+  font-size: 32px;
+}
+
+@media (max-width: 1200px) {
+  .end-of-game p {
+    font-size: 24px;
+  }
+}
 /*# sourceMappingURL=endOfGame.css.map */
