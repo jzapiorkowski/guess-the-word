@@ -25,13 +25,16 @@ export const App = () => {
       availableImages[currentImageIndex].toUpperCase() === word.toUpperCase()
     ) {
       if (availableImages.length === 1) {
-        setWin(!win);
-        return null;
+        setTimeout(() => {
+          setWin(!win);
+          return null;
+        }, 500);
+      } else {
+        changeImage().then(() => {
+          updateAvailableImages();
+          setWord('');
+        });
       }
-      changeImage().then(() => {
-        updateAvailableImages();
-        setWord('');
-      });
     }
   }, [word]);
 
