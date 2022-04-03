@@ -16,15 +16,17 @@
 }
 
 .app img {
-  height: auto;
-  width: 600px;
+  height: 360px;
+  width: 636px;
+  -o-object-fit: cover;
+     object-fit: cover;
   margin-top: 75px;
 }
 
 @media (max-width: 800px) {
   .app img {
-    width: 100%;
-    height: auto;
+    width: 100vw;
+    height: calc(100vw / 1.77);
   }
 }
 /*# sourceMappingURL=app.css.map */

@@ -5,12 +5,13 @@
   align-items: center;
   height: 100vh;
   img {
-    height: auto;
-    width: 600px;
+    height: 360px;
+    width: 636px;
+    object-fit: cover;
     margin-top: 75px;
     @media (max-width: 800px) {
-      width: 100%;
-      height: auto;
+      width: 100vw;
+      height: calc(100vw / 1.77);
     }
   }
 }
