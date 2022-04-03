@@ -6,37 +6,47 @@ import photos from '../images/index';
 import { EndOfGame } from '../endOfGame/EndOfGame';
 import { Header } from '../header/header';
 import { LetterTiles } from '../letterTiles/LetterTiles';
+const images = Object.keys(photos);
 
 export const GameDifficultyContext = React.createContext();
 export const ChangeGameDifficultyContext = React.createContext();
 
 export const App = () => {
-  const images = Object.keys(photos);
   const [word, setWord] = useState('');
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [win, setWin] = useState(false);
   const [gameDifficulty, setGameDifficulty] = useState('easy');
+  const [availableImages, setavailableImages] = useState([...images]);
+  const [currentImageIndex, setCurrentImageIndex] = useState(
+    Math.floor(Math.random() * availableImages.length)
+  );
 
   useEffect(() => {
-    if (images[currentImageIndex].toUpperCase() === word.toUpperCase()) {
-      if (currentImageIndex === images.length - 1) {
+    if (
+      availableImages[currentImageIndex].toUpperCase() === word.toUpperCase()
+    ) {
+      if (availableImages.length === 1) {
         setWin(!win);
-        setCurrentImageIndex(0);
-      } else {
-        setTimeout(() => {
-          changeImage();
-        }, 500);
+        return null;
       }
-      setTimeout(() => {
+      changeImage().then(() => {
+        updateAvailableImages();
         setWord('');
-      }, 500);
+      });
     }
   }, [word]);
+
+  function updateAvailableImages() {
+    setavailableImages(() => {
+      const tmp = [...availableImages];
+      tmp.splice(currentImageIndex, 1);
+      return tmp;
+    });
+  }
 
   function handleKeyboardChanges(button) {
     if (gameDifficulty === 'hard') {
       setWord(word + button);
-    } else if (word.length < images[currentImageIndex].length) {
+    } else if (word.length < availableImages[currentImageIndex].length) {
       setWord(word + button);
     }
   }
@@ -50,7 +60,14 @@ export const App = () => {
   };
 
   const changeImage = () => {
-    setCurrentImageIndex(currentImageIndex + 1);
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        setCurrentImageIndex(
+          Math.floor(Math.random() * (availableImages.length - 1))
+        );
+        resolve();
+      }, 500);
+    });
   };
 
   const switchWordOutput = (difficulty) => {
@@ -58,7 +75,7 @@ export const App = () => {
       return (
         <GameDifficultyContext.Provider value={gameDifficulty}>
           <LetterTiles
-            images={images}
+            availableImages={availableImages}
             currentImageIndex={currentImageIndex}
             word={word}
           ></LetterTiles>
@@ -84,7 +101,10 @@ export const App = () => {
           <Header></Header>
         </ChangeGameDifficultyContext.Provider>
       </GameDifficultyContext.Provider>
-      <img src={photos[images[currentImageIndex]]} alt='image to guess'></img>
+      <img
+        src={photos[availableImages[currentImageIndex]]}
+        alt='image to guess'
+      ></img>
       {switchWordOutput(gameDifficulty)}
       <Keyboard
         handleKeyboardChange={handleKeyboardChanges}
