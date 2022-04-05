@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { WordOutput } from '../wordOutput/WordOutput';
 import { Keyboard } from '../keyboard/Keyboard';
 import './app.css';
-import photos from '../images/index';
+import photos from '../../images/index';
 import { EndOfGame } from '../endOfGame/EndOfGame';
 import { Header } from '../header/header';
 import { LetterTiles } from '../letterTiles/LetterTiles';
