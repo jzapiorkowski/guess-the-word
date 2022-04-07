@@ -6,7 +6,6 @@ import photos from '../../images/index';
 import { EndOfGame } from '../endOfGame/EndOfGame';
 import { Header } from '../header/header';
 import { LetterTiles } from '../letterTiles/LetterTiles';
-const images = Object.keys(photos);
 
 export const GameDifficultyContext = React.createContext();
 export const ChangeGameDifficultyContext = React.createContext();
@@ -15,7 +14,16 @@ export const App = () => {
   const [word, setWord] = useState('');
   const [win, setWin] = useReducer((win) => !win, false);
   const [gameDifficulty, setGameDifficulty] = useState('easy');
-  const [availableImages, setavailableImages] = useState([...images]);
+  const [availableImages, setavailableImages] = useReducer(
+    (availableImages, currentImageIndex) => {
+      const tmp = [...availableImages];
+      tmp.splice(currentImageIndex, 1);
+      console.log(currentImageIndex);
+      console.log(tmp);
+      return tmp;
+    },
+    Object.keys(photos)
+  );
   const [currentImageIndex, setCurrentImageIndex] = useState(
     Math.floor(Math.random() * availableImages.length)
   );
@@ -31,20 +39,12 @@ export const App = () => {
         }, 500);
       } else {
         changeImage().then(() => {
-          updateAvailableImages();
+          setavailableImages(currentImageIndex);
           setWord('');
         });
       }
     }
   }, [word]);
-
-  function updateAvailableImages() {
-    setavailableImages(() => {
-      const tmp = [...availableImages];
-      tmp.splice(currentImageIndex, 1);
-      return tmp;
-    });
-  }
 
   function handleKeyboardChanges(button) {
     if (gameDifficulty === 'hard') {
