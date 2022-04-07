@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/guess-the-word/static/css/main.b4465c46.css",
+    "main.js": "/guess-the-word/static/js/main.7511f0f8.js",
+    "static/media/cat.jpg": "/guess-the-word/static/media/cat.3147a978e9546ee0303d.jpg",
+    "static/media/panda.jpg": "/guess-the-word/static/media/panda.7e4258e6fd2978e5e2e4.jpg",
+    "static/media/tiger.jpg": "/guess-the-word/static/media/tiger.614a6de3bd008f1853b2.jpg",
+    "static/media/dog.jpg": "/guess-the-word/static/media/dog.60600adea3b7e9c4b486.jpg",
+    "static/media/horse.jpg": "/guess-the-word/static/media/horse.3c67645c0fd67db0b514.jpg",
+    "static/media/eagle.jpg": "/guess-the-word/static/media/eagle.826e6af9d8d7ad4d449f.jpg",
+    "index.html": "/guess-the-word/index.html",
+    "main.b4465c46.css.map": "/guess-the-word/static/css/main.b4465c46.css.map",
+    "main.7511f0f8.js.map": "/guess-the-word/static/js/main.7511f0f8.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b4465c46.css",
+    "static/js/main.7511f0f8.js"
+  ]
+}
