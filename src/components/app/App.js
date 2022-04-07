@@ -18,8 +18,6 @@ export const App = () => {
     (availableImages, currentImageIndex) => {
       const tmp = [...availableImages];
       tmp.splice(currentImageIndex, 1);
-      console.log(currentImageIndex);
-      console.log(tmp);
       return tmp;
     },
     Object.keys(photos)
