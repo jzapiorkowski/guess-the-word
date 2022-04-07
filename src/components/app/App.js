@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useReducer } from 'react';
 import { WordOutput } from '../wordOutput/WordOutput';
 import { Keyboard } from '../keyboard/Keyboard';
 import './app.css';
@@ -13,7 +13,7 @@ export const ChangeGameDifficultyContext = React.createContext();
 
 export const App = () => {
   const [word, setWord] = useState('');
-  const [win, setWin] = useState(false);
+  const [win, setWin] = useReducer((win) => !win, false);
   const [gameDifficulty, setGameDifficulty] = useState('easy');
   const [availableImages, setavailableImages] = useState([...images]);
   const [currentImageIndex, setCurrentImageIndex] = useState(
@@ -26,7 +26,7 @@ export const App = () => {
     ) {
       if (availableImages.length === 1) {
         setTimeout(() => {
-          setWin(!win);
+          setWin();
           return null;
         }, 500);
       } else {
