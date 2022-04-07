@@ -1,17 +1,13 @@
-import React, { useState, useContext } from 'react';
+import React, { useReducer, useContext } from 'react';
 import './sidebar.css';
 import { VscTriangleDown, VscTriangleUp } from 'react-icons/vsc';
 import { ChangeGameDifficultyContext, GameDifficultyContext } from '../app/App';
 import { FiCheck } from 'react-icons/fi';
 
 export const Sidebar = () => {
-  const [isHidden, setIsHidden] = useState(true);
+  const [isHidden, setIsHidden] = useReducer((isHidden) => !isHidden, true);
   const changeGameDifficulty = useContext(ChangeGameDifficultyContext);
   const gameDifficulty = useContext(GameDifficultyContext);
-
-  const toggleDifficultyMenu = () => {
-    setIsHidden(!isHidden);
-  };
 
   const difficultyList = ['easy', 'medium', 'hard'].map((difficulty, key) => {
     return (
@@ -25,7 +21,7 @@ export const Sidebar = () => {
   return (
     <nav className='sidebar'>
       <div className='difficulty-change'>
-        <div className='choose-difficulty' onClick={toggleDifficultyMenu}>
+        <div className='choose-difficulty' onClick={setIsHidden}>
           <p>Choose difficulty</p>
           {isHidden ? <VscTriangleDown /> : <VscTriangleUp />}
         </div>
