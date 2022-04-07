@@ -4,7 +4,6 @@ import './header.css';
 import { GoThreeBars } from 'react-icons/go';
 
 export const Header = (props) => {
-  // const [sidebar, setSidebar] = useState(false);
   const [sidebar, toggleSidebar] = useReducer((sidebar) => !sidebar, false);
 
   return (
