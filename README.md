@@ -1,10 +1,16 @@
 # Guess the word!
 
-To run this app locally, first clone this repository. Then inside the project directory use one of the following scripts.
+Guess the word is my very first project that I created to learn React. This is a game called charades where the user has to guess what is shown on the screen at the moment. Player can change difficulty which has effect in displaying output.
 
-## Available Scripts
+There are three difficulties:
 
-In the project directory, you can run:
+1.  **Easy** - shows length of a word along with color highlighting (red - bad, green - good)
+2.  **Medium** - shows length of a word but without color highlighting
+3.  **Hard** - doesn't show length of a word nor color highlighting
+
+## You can check the demo [here](https://jzapiorkowski.github.io/guess-the-word/)
+
+To run this app locally, first clone this repository. Then inside the project directory use one of the following scripts:
 
 ### `npm start`
 
